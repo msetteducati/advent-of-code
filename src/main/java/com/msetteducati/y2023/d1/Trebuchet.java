@@ -1,5 +1,6 @@
 package com.msetteducati.y2023.d1;
 
+import com.msetteducati.util.AdventOfCodeUtil;
 import com.msetteducati.util.FileUtil;
 import lombok.SneakyThrows;
 
@@ -10,13 +11,11 @@ public class Trebuchet {
 
     @SneakyThrows
     public static void main(String[] args) {
-        String fileName = args[0];
-        int sum = switch (args[1]) {
-            case "p1" -> part1(fileName);
-            case "p2" -> part2(fileName);
-            default -> throw new IllegalStateException("Unexpected value: " + args[1]);
-        };
-        System.out.println(sum);
+        AdventOfCodeUtil.takeInputAndRunPart(
+                args[0],
+                args[1],
+                Trebuchet::part1,
+                Trebuchet::part2);
     }
 
     /**

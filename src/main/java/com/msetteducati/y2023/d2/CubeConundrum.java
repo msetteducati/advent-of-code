@@ -1,22 +1,23 @@
 package com.msetteducati.y2023.d2;
 
 import com.msetteducati.util.AdventOfCodeUtil;
-import com.msetteducati.util.FileUtil;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
 public class CubeConundrum {
 
-    public static Map<Color, Integer> MAX_COLOR_COUNT = Map.of(
+    public static final Map<Color, Integer> MAX_COLOR_COUNT = Map.of(
             Color.BLUE, 14,
             Color.GREEN, 13,
             Color.RED, 12
     );
 
     public static void main(String[] args) {
-        AdventOfCodeUtil.takeInputAndRunPart(
+        AdventOfCodeUtil.runFromInputLines(
+                "y2023/d2/",
                 args[0],
                 args[1],
                 CubeConundrum::part1,
@@ -49,11 +50,11 @@ public class CubeConundrum {
      * In the example above, games 1, 2, and 5 would have been possible if the bag had been loaded with that configuration. However, game 3 would have been impossible because at one point the Elf showed you 20 red cubes at once; similarly, game 4 would also have been impossible because the Elf showed you 15 blue cubes at once. If you add up the IDs of the games that would have been possible, you get 8.
      * <br><br>
      * Determine which games would have been possible if the bag had been loaded with only 12 red cubes, 13 green cubes, and 14 blue cubes. What is the sum of the IDs of those games?
-     * @param fileName
+     * @param input
      * @return
      */
-    public static int part1(String fileName) {
-        return FileUtil.getLines("y2023/d2/" + fileName).stream()
+    public static int part1(List<String> input) {
+        return input.stream()
                 .map(Game::fromString)
                 .filter(Objects::nonNull)
                 .map(game -> {
@@ -94,11 +95,11 @@ public class CubeConundrum {
      * The power of a set of cubes is equal to the numbers of red, green, and blue cubes multiplied together. The power of the minimum set of cubes in game 1 is 48. In games 2-5 it was 12, 1560, 630, and 36, respectively. Adding up these five powers produces the sum 2286.
      * <br><br>
      * For each game, find the minimum set of cubes that must have been present. What is the sum of the power of these sets?
-     * @param fileName
+     * @param input
      * @return
      */
-    public static int part2(String fileName) {
-        return FileUtil.getLines("y2023/d2/" + fileName).stream()
+    public static int part2(List<String> input) {
+        return input.stream()
                 .map(Game::fromString)
                 .filter(Objects::nonNull)
                 .map(game -> {

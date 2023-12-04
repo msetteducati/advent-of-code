@@ -1,7 +1,6 @@
 package com.msetteducati.y2023.d1;
 
 import com.msetteducati.util.AdventOfCodeUtil;
-import com.msetteducati.util.FileUtil;
 import lombok.SneakyThrows;
 
 import java.util.List;
@@ -9,9 +8,22 @@ import java.util.Map;
 
 public class Trebuchet {
 
+    public static final Map<String, Integer> NUM_MAP = Map.of(
+            "one", 1,
+            "two", 2,
+            "three", 3,
+            "four", 4,
+            "five", 5,
+            "six", 6,
+            "seven", 7,
+            "eight", 8,
+            "nine", 9
+    );
+
     @SneakyThrows
     public static void main(String[] args) {
-        AdventOfCodeUtil.takeInputAndRunPart(
+        AdventOfCodeUtil.runFromInputLines(
+                "y2023/d1/",
                 args[0],
                 args[1],
                 Trebuchet::part1,
@@ -42,9 +54,7 @@ public class Trebuchet {
      * <br><br>
      * Consider your entire calibration document. What is the sum of all of the calibration values?
      */
-    public static int part1(String fileName) {
-        List<String> input = FileUtil.getLines("y2023/d1/" + fileName);
-
+    public static int part1(List<String> input) {
         int sum = 0;
 
         for (String line : input) {
@@ -79,28 +89,14 @@ public class Trebuchet {
      * 7pqrstsixteen
      * </pre>
      * In this example, the calibration values are 29, 83, 13, 24, 42, 14, and 76. Adding these together produces 281.
-     * @param fileName
+     * @param input
      * @return
      */
-    public static int part2(String fileName) {
-        Map<String, Integer> numMap = Map.of(
-                "one", 1,
-                "two", 2,
-                "three", 3,
-                "four", 4,
-                "five", 5,
-                "six", 6,
-                "seven", 7,
-                "eight", 8,
-                "nine", 9
-        );
-
-        List<String> input = FileUtil.getLines("y2023/d1/" + fileName);
-
+    public static int part2(List<String> input) {
         int sum = 0;
 
         for (String line : input) {
-            for (var numMapEntry : numMap.entrySet()) {
+            for (var numMapEntry : NUM_MAP.entrySet()) {
                 boolean foundNum = true;
                 while (foundNum) {
                     int indexOfNum = line.indexOf(numMapEntry.getKey());

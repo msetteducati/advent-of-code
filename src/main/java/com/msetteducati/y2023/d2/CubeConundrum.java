@@ -1,7 +1,5 @@
 package com.msetteducati.y2023.d2;
 
-import com.msetteducati.util.AdventOfCodeUtil;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,20 +7,11 @@ import java.util.Objects;
 
 public class CubeConundrum {
 
-    public static final Map<Color, Integer> MAX_COLOR_COUNT = Map.of(
+    private static final Map<Color, Integer> MAX_COLOR_COUNT = Map.of(
             Color.BLUE, 14,
             Color.GREEN, 13,
             Color.RED, 12
     );
-
-    public static void main(String[] args) {
-        AdventOfCodeUtil.runFromInputLines(
-                "y2023/d2/",
-                args[0],
-                args[1],
-                CubeConundrum::part1,
-                CubeConundrum::part2);
-    }
 
     /**
      * You're launched high into the atmosphere! The apex of your trajectory just barely reaches the surface of a large island floating in the sky. You gently land in a fluffy pile of leaves. It's quite cold, but you don't see much snow. An Elf runs over to greet you.
@@ -53,7 +42,7 @@ public class CubeConundrum {
      * @param input
      * @return
      */
-    public static int part1(List<String> input) {
+    public int part1(List<String> input) {
         return input.stream()
                 .map(Game::fromString)
                 .filter(Objects::nonNull)
@@ -98,7 +87,7 @@ public class CubeConundrum {
      * @param input
      * @return
      */
-    public static int part2(List<String> input) {
+    public int part2(List<String> input) {
         return input.stream()
                 .map(Game::fromString)
                 .filter(Objects::nonNull)

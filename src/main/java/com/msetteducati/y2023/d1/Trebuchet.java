@@ -1,14 +1,11 @@
 package com.msetteducati.y2023.d1;
 
-import com.msetteducati.util.AdventOfCodeUtil;
-import lombok.SneakyThrows;
-
 import java.util.List;
 import java.util.Map;
 
 public class Trebuchet {
 
-    public static final Map<String, Integer> NUM_MAP = Map.of(
+    private static final Map<String, Integer> NUM_MAP = Map.of(
             "one", 1,
             "two", 2,
             "three", 3,
@@ -19,16 +16,6 @@ public class Trebuchet {
             "eight", 8,
             "nine", 9
     );
-
-    @SneakyThrows
-    public static void main(String[] args) {
-        AdventOfCodeUtil.runFromInputLines(
-                "y2023/d1/",
-                args[0],
-                args[1],
-                Trebuchet::part1,
-                Trebuchet::part2);
-    }
 
     /**
      * Something is wrong with global snow production, and you've been selected to take a look. The Elves have even given you a map; on it, they've used stars to mark the top fifty locations that are likely to be having problems.
@@ -54,7 +41,7 @@ public class Trebuchet {
      * <br><br>
      * Consider your entire calibration document. What is the sum of all of the calibration values?
      */
-    public static int part1(List<String> input) {
+    public int part1(List<String> input) {
         int sum = 0;
 
         for (String line : input) {
@@ -92,7 +79,7 @@ public class Trebuchet {
      * @param input
      * @return
      */
-    public static int part2(List<String> input) {
+    public int part2(List<String> input) {
         int sum = 0;
 
         for (String line : input) {

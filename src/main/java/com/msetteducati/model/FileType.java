@@ -7,6 +7,7 @@ import lombok.Getter;
 @Getter
 public enum FileType {
     SAMPLE("sample-input.txt"),
+    SAMPLE_2("sample-input-2.txt"),
     FULL("full-input.txt");
 
     private final String fileName;

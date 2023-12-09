@@ -1,47 +1,29 @@
 package com.msetteducati.y2023.d3;
 
-import com.msetteducati.util.FileUtil;
+import com.msetteducati.PuzzleSolutionTestBase;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.provider.Arguments;
 
-import java.util.List;
+import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static com.msetteducati.model.FileType.FULL;
+import static com.msetteducati.model.FileType.SAMPLE;
+import static com.msetteducati.model.Part.PART1;
+import static com.msetteducati.model.Part.PART2;
 
-class GearRatiosTest {
-
-    private GearRatios gearRatios;
+class GearRatiosTest extends PuzzleSolutionTestBase {
 
     @BeforeEach
     void setUp() {
-        this.gearRatios = new GearRatios();
+        this.underTest = new GearRatios();
     }
 
-    @Test
-    void part1_sample() {
-        List<String> input = FileUtil.getLines("y2023/d3/sample-input.txt");
-        var result = gearRatios.part1(input);
-        assertEquals(4361, result);
-    }
-
-    @Test
-    void part1_full() {
-        List<String> input = FileUtil.getLines("y2023/d3/full-input.txt");
-        var result = gearRatios.part1(input);
-        assertEquals(557705, result);
-    }
-
-    @Test
-    void part2_sample() {
-        List<String> input = FileUtil.getLines("y2023/d3/sample-input.txt");
-        var result = gearRatios.part2(input);
-        assertEquals(467835, result);
-    }
-
-    @Test
-    void part2_full() {
-        List<String> input = FileUtil.getLines("y2023/d3/full-input.txt");
-        var result = gearRatios.part2(input);
-        assertEquals(84266818, result);
+    static Stream<Arguments> executeTests() {
+        return Stream.of(
+                Arguments.of(PART1, SAMPLE, 4361L),
+                Arguments.of(PART1, FULL, 557705L),
+                Arguments.of(PART2, SAMPLE, 467835L),
+                Arguments.of(PART2, FULL, 84266818L)
+        );
     }
 }

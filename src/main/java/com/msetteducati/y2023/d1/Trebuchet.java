@@ -1,9 +1,11 @@
 package com.msetteducati.y2023.d1;
 
+import com.msetteducati.model.PuzzleSolution;
+
 import java.util.List;
 import java.util.Map;
 
-public class Trebuchet {
+public class Trebuchet implements PuzzleSolution {
 
     private static final Map<String, Integer> NUM_MAP = Map.of(
             "one", 1,
@@ -41,7 +43,7 @@ public class Trebuchet {
      * <br><br>
      * Consider your entire calibration document. What is the sum of all of the calibration values?
      */
-    public int part1(List<String> input) {
+    public long part1(List<String> input) {
         int sum = 0;
 
         for (String line : input) {
@@ -79,7 +81,7 @@ public class Trebuchet {
      * @param input
      * @return
      */
-    public int part2(List<String> input) {
+    public long part2(List<String> input) {
         int sum = 0;
 
         for (String line : input) {

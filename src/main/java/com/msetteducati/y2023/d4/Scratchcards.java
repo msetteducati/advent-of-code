@@ -1,9 +1,11 @@
 package com.msetteducati.y2023.d4;
 
+import com.msetteducati.model.PuzzleSolution;
+
 import java.util.Arrays;
 import java.util.List;
 
-public class Scratchcards {
+public class Scratchcards implements PuzzleSolution {
 
     /**
      * The gondola takes you up. Strangely, though, the ground doesn't seem to be coming with you; you're not climbing a mountain. As the circle of Snow Island recedes below you, an entire new landmass suddenly appears above you! The gondola carries you to the surface of the new island and lurches into the station.
@@ -41,7 +43,7 @@ public class Scratchcards {
      * Take a seat in the large pile of colorful cards. How many points are they worth in total?
      * @return
      */
-    public int part1(List<String> input) {
+    public long part1(List<String> input) {
         return input.stream()
                 .map(Card::fromString)
                 .map(Card::computeValue)
@@ -82,7 +84,7 @@ public class Scratchcards {
      * @param input
      * @return
      */
-    public int part2(List<String> input) {
+    public long part2(List<String> input) {
         // Process input
         List<Card> cards = input.stream()
                 .map(Card::fromString)

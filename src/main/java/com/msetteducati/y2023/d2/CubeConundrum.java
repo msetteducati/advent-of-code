@@ -1,11 +1,13 @@
 package com.msetteducati.y2023.d2;
 
+import com.msetteducati.model.PuzzleSolution;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-public class CubeConundrum {
+public class CubeConundrum implements PuzzleSolution {
 
     private static final Map<Color, Integer> MAX_COLOR_COUNT = Map.of(
             Color.BLUE, 14,
@@ -42,7 +44,7 @@ public class CubeConundrum {
      * @param input
      * @return
      */
-    public int part1(List<String> input) {
+    public long part1(List<String> input) {
         return input.stream()
                 .map(Game::fromString)
                 .filter(Objects::nonNull)
@@ -87,7 +89,7 @@ public class CubeConundrum {
      * @param input
      * @return
      */
-    public int part2(List<String> input) {
+    public long part2(List<String> input) {
         return input.stream()
                 .map(Game::fromString)
                 .filter(Objects::nonNull)

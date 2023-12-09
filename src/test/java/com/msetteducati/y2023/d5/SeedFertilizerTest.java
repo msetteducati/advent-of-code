@@ -1,52 +1,29 @@
 package com.msetteducati.y2023.d5;
 
-import com.msetteducati.util.FileUtil;
-import org.junit.Ignore;
+import com.msetteducati.PuzzleSolutionTestBase;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.provider.Arguments;
 
-import java.util.List;
+import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static com.msetteducati.model.FileType.FULL;
+import static com.msetteducati.model.FileType.SAMPLE;
+import static com.msetteducati.model.Part.PART1;
+import static com.msetteducati.model.Part.PART2;
 
-class SeedFertilizerTest {
-
-    private SeedFertilizer seedFertilizer;
+class SeedFertilizerTest extends PuzzleSolutionTestBase {
 
     @BeforeEach
     void setUp() {
-        this.seedFertilizer = new SeedFertilizer();
+        this.underTest = new SeedFertilizer();
     }
 
-    @Test
-    void part1_sample() {
-        List<String> input = FileUtil.getLines("y2023/d5/sample-input.txt");
-        var result = seedFertilizer.part1(input);
-        assertEquals((long) 35, result);
-    }
-
-    @Test
-    void part1_full() {
-        List<String> input = FileUtil.getLines("y2023/d5/full-input.txt");
-        var result = seedFertilizer.part1(input);
-        System.out.println(result);
-        assertEquals(525792406, result);
-    }
-
-    @Test
-    void part2_sample() {
-        List<String> input = FileUtil.getLines("y2023/d5/sample-input.txt");
-        var result = seedFertilizer.part2(input);
-        assertEquals((long) 46, result);
-    }
-
-    @Test
-    @Disabled("too slow")
-    void part2_full() {
-        List<String> input = FileUtil.getLines("y2023/d5/full-input.txt");
-        var result = seedFertilizer.part2(input);
-        System.out.println(result);
-        assertEquals(79004094, result);
+    static Stream<Arguments> executeTests() {
+        return Stream.of(
+                Arguments.of(PART1, SAMPLE, 35L),
+                Arguments.of(PART1, FULL, 525792406L),
+                Arguments.of(PART2, SAMPLE, 46L)
+//                Arguments.of(PART2, FULL, 79004094L) // - too slow
+        );
     }
 }

@@ -1,5 +1,7 @@
 package com.msetteducati.y2023.d5;
 
+import com.msetteducati.model.PuzzleSolution;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
@@ -7,7 +9,7 @@ import java.util.stream.Stream;
 
 import static com.msetteducati.y2023.d5.MapType.*;
 
-public class SeedFertilizer {
+public class SeedFertilizer implements PuzzleSolution {
 
     /**
      * You take the boat and find the gardener right where you were told he would be: managing a giant "garden" that looks more to you like a farm.

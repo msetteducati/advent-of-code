@@ -1,8 +1,10 @@
 package com.msetteducati.y2023.d3;
 
+import com.msetteducati.model.PuzzleSolution;
+
 import java.util.*;
 
-public class GearRatios {
+public class GearRatios implements PuzzleSolution {
 
     private char[][] schematic;
     private int m;
@@ -39,10 +41,10 @@ public class GearRatios {
      * In this schematic, two numbers are not part numbers because they are not adjacent to a symbol: 114 (top right) and 58 (middle right). Every other number is adjacent to a symbol and so is a part number; their sum is 4361.
      * <br><br>
      * Of course, the actual engine schematic is much larger. What is the sum of all of the part numbers in the engine schematic?
-     * @param fileName
+     * @param input
      * @return
      */
-    public int part1(List<String> input) {
+    public long part1(List<String> input) {
         processInput(input);
 
         int partNumberSum = 0;
@@ -123,7 +125,7 @@ public class GearRatios {
      * @param input
      * @return
      */
-    public int part2(List<String> input) {
+    public long part2(List<String> input) {
         processInput(input);
 
         // Map of * char index hash -> part number

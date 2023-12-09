@@ -1,8 +1,10 @@
 package com.msetteducati.y2023.d6;
 
+import com.msetteducati.model.PuzzleSolution;
+
 import java.util.List;
 
-public class WaitForIt {
+public class WaitForIt implements PuzzleSolution {
 
     /**
      * The ferry quickly brings you across Island Island. After asking around, you discover that there is indeed normally a large pile of sand somewhere near here, but you don't see anything besides lots of water and the small island where the ferry has docked.

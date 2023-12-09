@@ -1,33 +1,26 @@
 package com.msetteducati.y2023.d1;
 
-import com.msetteducati.util.FileUtil;
+import com.msetteducati.PuzzleSolutionTestBase;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.provider.Arguments;
 
-import java.util.List;
+import java.util.stream.Stream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static com.msetteducati.model.FileType.FULL;
+import static com.msetteducati.model.Part.PART1;
+import static com.msetteducati.model.Part.PART2;
 
-class TrebuchetTest {
-
-    private Trebuchet trebuchet;
+class TrebuchetTest extends PuzzleSolutionTestBase {
 
     @BeforeEach
     void setUp() {
-        this.trebuchet = new Trebuchet();
+        this.underTest = new Trebuchet();
     }
 
-    @Test
-    void part1() {
-        List<String> input = FileUtil.getLines("y2023/d1/full-input.txt");
-        var result = trebuchet.part1(input);
-        assertEquals(53921, result);
-    }
-
-    @Test
-    void part2() {
-        List<String> input = FileUtil.getLines("y2023/d1/full-input.txt");
-        var result = trebuchet.part2(input);
-        assertEquals(54676, result);
+    static Stream<Arguments> executeTests() {
+        return Stream.of(
+                Arguments.of(PART1, FULL, 53921L),
+                Arguments.of(PART2, FULL, 54676L)
+        );
     }
 }
